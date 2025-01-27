@@ -15,12 +15,17 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
   const [openAccordions, setOpenAccordions] = useState<{[key: string]: boolean}>({});
 
   useEffect(() => {
+    window.addEventListener('beforeunload', handleBack);
     window.addEventListener('popstate', handleBack);
 
+    window.history.pushState({ page: 'planos' }, '');
+
     return () => {
+      window.removeEventListener('beforeunload', handleBack);
       window.removeEventListener('popstate', handleBack);
     };
   }, [setPlanos, setBeneficiarios]);
+  
 
   const toggleAccordion = (contrato: string) => {
     setOpenAccordions(prev => ({
