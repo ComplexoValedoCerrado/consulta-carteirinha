@@ -58,8 +58,6 @@ function FormPage({ setPlanos, planos, setBeneficiarios }: FormPageProps) {
      try {
        const allBeneficiarios: { [key: string]: any } = {};
 
-       console.log(planos)
-       
        for (const plano of planos) {
          const response = await fetch(`${import.meta.env.VITE_API_CONSULTA_BENEFICIARIOS_URL}?cContrato=${plano.contrato}&cFilialx=${plano.filial}`);
          const data: BeneficiariosResponse = await response.json();
