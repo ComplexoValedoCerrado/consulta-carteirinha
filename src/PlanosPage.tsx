@@ -32,6 +32,12 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
       window.removeEventListener('popstate', handleBack);
     };
   }, [setPlanos, setBeneficiarios]);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = logoVale;
+  }, []);
+  
   
   const toggleAccordion = (contrato: string) => {
     setOpenAccordions(prev => ({
