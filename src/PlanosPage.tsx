@@ -92,11 +92,11 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
               {/* Seção de Cartões */}
               <div className="space-y-4 w-full">
                 <div className="flex justify-center">
-                  <button 
+                  <button
                     onClick={() => toggleAccordion(plano.contrato)}
                     className={`w-full ${plano.status === "Ativo" ? 'bg-green-vale' : 'bg-gray-400'} text-white rounded-xl py-2 px-4 font-semibold text-sm lg:text-base relative`}
                   >
-                    Baixar Cartão de Benefício
+                    Visualizar carteirinhas
                     {openAccordions[plano.contrato] ? 
                       <ChevronUp className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} /> : 
                       <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} />
@@ -107,12 +107,12 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                 {(openAccordions[plano.contrato] && plano.status === "Ativo") && (
                   <div className="space-y-3">
                     {/* Cartão Titular */}
-                    <div className="bg-gray-200 rounded-xl p-3">
+                    <div className={`${openAccordions[`${plano.contrato}-titular`] ? "bg-gray-200" : "transparent" }  rounded-xl p-3`}>
                       <button 
                         onClick={() => toggleAccordion(`${plano.contrato}-titular`)}
-                        className="w-full bg-green-vale text-white rounded-xl py-2 px-4 font-semibold text-sm lg:text-base relative"
+                        className="w-full bg-green-900 text-white rounded-xl py-2 px-4 font-semibold text-sm lg:text-base relative"
                       >
-                        Cartão Titular
+                        Carteirinha titular
                         {openAccordions[`${plano.contrato}-titular`] ? 
                           <ChevronUp className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} /> : 
                           <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} />
@@ -148,12 +148,12 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                     </div>
 
                     {/* Cartão Dependentes */}
-                    <div className="bg-gray-200 rounded-xl p-3">
+                    <div className={`${openAccordions[`${plano.contrato}-dependentes`] ? "bg-gray-200" : "transparent" }  rounded-xl p-3`}>
                       <button 
                         onClick={() => toggleAccordion(`${plano.contrato}-dependentes`)}
-                        className="w-full bg-green-vale text-white rounded-xl py-2 px-4 font-semibold text-sm lg:text-base relative"
+                        className="w-full bg-green-900 text-white rounded-xl py-2 px-4 font-semibold text-sm lg:text-base relative"
                       >
-                        Cartão Dependentes
+                        Carteirinhas dependentes
                         {openAccordions[`${plano.contrato}-dependentes`] ? 
                           <ChevronUp className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} /> : 
                           <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} />
