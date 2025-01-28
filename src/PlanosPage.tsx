@@ -282,6 +282,16 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                       }
                     </span>
                   </div>
+    
+                  <div className="flex flex-row">
+                    <div className="w-20 min-[436px]:w-24 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
+                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base font-semibold">Validade</span>
+                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base font-semibold">:</span>
+                    </div>
+                    <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base ml-2 font-semibold">
+                      {new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString()}
+                    </span>
+                  </div>
                   
                   <div className="flex flex-row">
                     <div className="w-20 min-[436px]:w-24 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">

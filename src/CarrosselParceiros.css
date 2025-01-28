@@ -1,0 +1,19 @@
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50%)); /* Mantemos -50% pois temos a duplicação */
+    }
+  }
+  
+  .animate-scroll {
+    animation: scroll 60s linear infinite; /* Aumentei o tempo para dar tempo de ver todas */
+    display: flex;
+    gap: 2rem;
+    width: max-content; /* Mudei de fit-content para max-content */
+  }
+  
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
