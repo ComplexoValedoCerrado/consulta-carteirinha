@@ -292,7 +292,7 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
               <div className="absolute left-0 bottom-0 w-full h-7 bg-green-vale"></div>
               
               <img 
-                className="z-10 absolute w-32 min-[436px]:w-35 min-[436px]:h-19 min-[505px]:w-40 min-[505px]:h-18 min-[607px]:w-50 h-14 min-[607px]:h-20 right-4 min-[569px]:right-6 min-[569px]:w-45 min-[569px]:h-18 font-bold top-1/2 transform -translate-y-1/2 object-contain object-center rendering-auto opacity-40"
+                className="z-10 absolute w-32 min-[436px]:w-35 min-[436px]:h-19 min-[505px]:w-40 min-[505px]:h-18 min-[607px]:w-50 h-14 min-[607px]:h-20 right-4 min-[569px]:right-6 min-[569px]:w-45 min-[569px]:h-18 font-bold top-3/5 transform -translate-y-1/2 object-contain object-center rendering-auto opacity-80"
                 src={logoVale}
                 alt="Logo Vale"
               />
