@@ -252,11 +252,11 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                 
                 <div className="space-y-1">
                   <div className="flex flex-row">
-                    <div className="w-20 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
-                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base">Nome</span>
-                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base">:</span>
+                    <div className="w-20 min-[436px]:w-24 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
+                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base font-semibold">Nome</span>
+                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base font-semibold">:</span>
                     </div>
-                    <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base ml-2 z-20">
+                    <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base ml-2 z-20 font-semibold">
                       {selectedPerson.type === 'titular' 
                         ? (selectedPerson.data as Plano).nome 
                         : (selectedPerson.data as Beneficiario).Nome
@@ -265,11 +265,11 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                   </div>
                   
                   <div className="flex flex-row">
-                    <div className="w-20 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
-                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base">Filial/Contrato</span>
-                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base">:</span>
+                    <div className="w-20 min-[436px]:w-24 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
+                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base font-semibold">Filial/Contrato</span>
+                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base font-semibold">:</span>
                     </div>
-                    <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base ml-2">
+                    <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base ml-2 font-semibold">
                       {selectedPerson.type === 'titular' 
                         ? `${(selectedPerson.data as Plano).filial}/${(selectedPerson.data as Plano).contrato}`
                         : `${(selectedPerson.data as Beneficiario).Filial}/${(selectedPerson.data as Beneficiario).Contrato}`
@@ -278,11 +278,11 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                   </div>
                   
                   <div className="flex flex-row">
-                    <div className="w-20 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
-                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base sm:text-base">Status</span>
-                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base sm:text-base">:</span>
+                    <div className="w-20 min-[436px]:w-24 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
+                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base sm:text-base font-semibold">Status</span>
+                      <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base sm:text-base font-semibold">:</span>
                     </div>
-                    <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base sm:text-base ml-2 text-green-vale">
+                    <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base sm:text-base ml-2 text-green-vale font-semibold">
                       Ativo
                     </span>
                   </div>
@@ -292,7 +292,7 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
               <div className="absolute left-0 bottom-0 w-full h-7 bg-green-vale"></div>
               
               <img 
-                className="z-10 absolute w-32 min-[436px]:w-35 min-[436px]:h-19 min-[537px]:w-40 min-[537px]:h-18 sm:w-50 h-14 sm:h-20 right-4 min-[569px]:right-6 font-bold top-1/2 transform -translate-y-1/2 object-contain object-center rendering-auto opacity-70"
+                className="z-10 absolute w-32 min-[436px]:w-35 min-[436px]:h-19 min-[537px]:w-40 min-[537px]:h-18 min-[607px]:w-50 h-14 min-[607px]:h-20 right-4 min-[569px]:right-6 min-[569px]:w-45 min-[569px]:h-18 font-bold top-1/2 transform -translate-y-1/2 object-contain object-center rendering-auto opacity-70"
                 src={logoVale}
                 alt="Logo Vale"
               />
