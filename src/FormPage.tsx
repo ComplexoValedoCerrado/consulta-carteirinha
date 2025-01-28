@@ -110,7 +110,7 @@ function FormPage({ setPlanos, planos, setBeneficiarios }: FormPageProps) {
 
   return (
     <>
-      <div className='flex flex-col lg:flex-row w-full h-screen bg-midnight-blue overflow-hidden'>
+      <div className='flex flex-col lg:flex-row w-full h-[100dvh] bg-midnight-blue overflow-hidden'>
         {/* Coluna da Esquerda */}
         <div className='flex flex-col justify-center w-full lg:w-1/2 h-full px-4 py-8 lg:pl-16 xl:pl-24 2xl:pl-35'>
           <div className='flex flex-col gap-4 lg:gap-7 w-full max-w-2xl mx-auto lg:mx-0'>
