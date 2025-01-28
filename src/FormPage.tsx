@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import woman_image from './assets/mulher_feliz.png'
+import woman_image from './assets/mulher_feliz.webp'
 import lupa from './assets/lupa.png'
 import { Beneficiario, Plano } from './App'
 
