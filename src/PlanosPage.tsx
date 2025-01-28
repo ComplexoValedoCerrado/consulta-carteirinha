@@ -252,11 +252,11 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                 
                 <div className="space-y-1">
                   <div className="flex flex-row">
-                    <div className="w-22 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
+                    <div className="w-20 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
                       <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base">Nome</span>
                       <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base">:</span>
                     </div>
-                    <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base ml-2">
+                    <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base ml-2 z-20">
                       {selectedPerson.type === 'titular' 
                         ? (selectedPerson.data as Plano).nome 
                         : (selectedPerson.data as Beneficiario).Nome
@@ -265,7 +265,7 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                   </div>
                   
                   <div className="flex flex-row">
-                    <div className="w-22 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
+                    <div className="w-20 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
                       <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base">Filial/Contrato</span>
                       <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base">:</span>
                     </div>
@@ -278,7 +278,7 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                   </div>
                   
                   <div className="flex flex-row">
-                    <div className="w-22 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
+                    <div className="w-20 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
                       <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base sm:text-base">Status</span>
                       <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base sm:text-base">:</span>
                     </div>
@@ -292,7 +292,7 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
               <div className="absolute left-0 bottom-0 w-full h-7 bg-green-vale"></div>
               
               <img 
-                className="absolute w-32 min-[436px]:w-35 min-[436px]:h-19 min-[537px]:w-40 min-[537px]:h-18 sm:w-50 h-14 sm:h-20 right-2 min-[569px]:right-6 font-bold top-1/2 transform -translate-y-1/2 object-contain object-center rendering-auto opacity-90"
+                className="z-10 absolute w-32 min-[436px]:w-35 min-[436px]:h-19 min-[537px]:w-40 min-[537px]:h-18 sm:w-50 h-14 sm:h-20 right-4 min-[569px]:right-6 font-bold top-1/2 transform -translate-y-1/2 object-contain object-center rendering-auto opacity-70"
                 src={logoVale}
                 alt="Logo Vale"
               />
