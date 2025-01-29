@@ -73,7 +73,7 @@ import logo86 from './assets/86.png';
 
 import './CarrosselParceiros.css';
 
-const CarrosselParceiros = () => {
+const CarrosselParceiros = ({bgColor} : {bgColor : string}) => {
   const partners = [
     { id: 1, logo: logo6, name: 'Parceiro 1' },
     { id: 2, logo: logo7, name: 'Parceiro 2' },
@@ -151,7 +151,7 @@ const CarrosselParceiros = () => {
   const allPartners = [...partners, ...partners];
 
   return (
-    <div className="w-full bg-gray-100 overflow-hidden relative flex flex-col justify-center pb-4">
+    <div className={`w-full bg-${bgColor} overflow-hidden relative flex flex-col justify-center pb-4`}>
       <div className="w-full mx-auto px-4 pt-5">
         <div className="flex items-center gap-2 justify-center">
           <h3 className="text-xl font-semibold text-gray-800">Parceiros</h3>

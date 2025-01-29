@@ -195,7 +195,7 @@ function FormPage({ setPlanos, planos, setBeneficiarios }: FormPageProps) {
 
         {/* Carrossel */}
         <div className='h-[10dvh] min-h-[150px] bg-gray-100 shrink-0'>
-          <CarrosselParceiros />
+          <CarrosselParceiros bgColor='gray-100' />
         </div>
       </div>
 
