@@ -252,7 +252,7 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                     CARTÃO DO ASSOCIADO
                   </h3>
                   
-                  <div className="space-y-1">
+                  <div>
                     <div className="flex flex-row">
                       <div className="w-20 min-[436px]:w-24 min-[505px]:w-26 min-[505px]:w-32 flex flex-row justify-between">
                         <span className="text-[11px] min-[436px]:text-[13px] min-[505px]:text-base font-semibold">Nome</span>
@@ -305,7 +305,7 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                 
                 <img
                   loading="eager"
-                  className="z-10 absolute w-32 min-[436px]:w-35 min-[436px]:h-19 min-[505px]:w-40 min-[505px]:h-18 min-[607px]:w-50 h-14 min-[607px]:h-20 right-4 min-[569px]:right-6 min-[569px]:w-45 min-[569px]:h-18 font-bold top-3/5 transform -translate-y-1/2 object-contain object-center rendering-auto opacity-80"
+                  className="z-10 absolute w-32 min-[344px]:w-22 min-[344px]:h-16 min-[344px]:top-4/6 min-[436px]:w-35 min-[436px]:h-19 min-[505px]:w-40 min-[505px]:h-18 min-[607px]:w-50 h-14 min-[607px]:h-20 right-4 min-[569px]:right-6 min-[569px]:w-45 min-[569px]:h-18 font-bold top-3/5 transform -translate-y-1/2 object-contain object-center rendering-auto opacity-80"
                   src={logoVale}
                   alt="Logo Vale"
                 />
