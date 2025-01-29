@@ -169,8 +169,8 @@ const CarrosselParceiros = ({bgColor} : {bgColor : string}) => {
 
       <div className="relative">
         {/* Gradientes */}
-        <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-100 to-transparent z-10" />
-        <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-100 to-transparent z-10" />
+        <div className={`absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-${bgColor} to-transparent z-10`} />
+        <div className={`absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-${bgColor} to-transparent z-10`} />
 
         {/* Carrossel */}
         <div className="flex gap-8 animate-scroll">

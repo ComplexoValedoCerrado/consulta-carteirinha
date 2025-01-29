@@ -315,7 +315,7 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
         )}
       </div>
       <div className='w-full h-full'> 
-          <CarrosselParceiros bgColor='transparent'/>
+          <CarrosselParceiros bgColor='gray-50'/>
       </div>
     </div>
   );
