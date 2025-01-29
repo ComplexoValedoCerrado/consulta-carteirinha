@@ -73,25 +73,28 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
             <div key={plano.contrato} className="w-full sm:w-5/7 lg:w-2/5 flex flex-col gap-4">
               {/* Card do Plano */}
               <div className={`
-                w-full rounded-2xl p-4 shadow-lg
-                ${plano.status === "Ativo" ? 'bg-green-vale' : 'bg-midnight-blue'}
+                w-full rounded-2xl p-4 shadow-lg ${plano.status === 'Ativo' ? 'border-green-vale' : 'border-midnight-blue'} border-2
+                transparent
               `}>
-                <div className="space-y-2">
-                  <span className="block text-white italic text-base lg:text-lg">
-                    Nome: {plano.nome}
-                  </span>
-                  <span className="block text-white italic text-base lg:text-lg">
-                    Plano: {plano.plano}
-                  </span>
-                  <span className="block text-white italic text-base lg:text-lg">
-                    Contrato: <span className="font-bold">{plano.contrato}</span>
-                  </span>
+                <div className='w-full flex flex-row justify-center items-center mb-2'>
+                  <h3 className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} text-lg font-bold`}>{plano.plano}</h3>
                 </div>
-                
-                <div className="mt-6 text-center">
-                  <span className="text-white italic font-bold text-lg">
-                    Status: {plano.status}
-                  </span>
+                <div className="space-y-2">
+
+                  <div className="grid grid-cols-[100px_1fr] items-center">
+                    <span className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} italic text-base lg:text-lg`}>Nome:</span>
+                    <span className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} italic text-base lg:text-lg`}>{plano.nome}</span>
+                  </div>
+                  
+                  <div className="grid grid-cols-[100px_1fr] items-center">
+                    <span className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} italic text-base lg:text-lg`}>Contrato:</span>
+                    <span className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} italic font-bold text-base lg:text-lg`}>{plano.contrato}</span>
+                  </div>
+
+                  <div className="grid grid-cols-[100px_1fr] items-center">
+                    <span className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} italic text-base lg:text-lg`}>Status:</span>
+                    <span className={`${plano.status === 'Ativo' ? "text-green-vale" : "text-red-800"} italic text-base lg:text-lg font-bold`}>{plano.status}</span>
+                  </div>
                 </div>
               </div>
 
