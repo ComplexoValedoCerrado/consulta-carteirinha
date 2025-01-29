@@ -38,7 +38,6 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
     img.src = logoVale;
   }, []);
   
-  
   const toggleAccordion = (contrato: string) => {
     setOpenAccordions(prev => ({
       ...prev,
@@ -70,164 +69,156 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-6 lg:gap-16">
           {planos.map((plano) => (
-            <div key={plano.contrato} className="w-full sm:w-5/7 lg:w-2/5 flex flex-col gap-4">
-              {/* Card do Plano */}
-              <div className={`
-                w-full rounded-2xl p-4 shadow-lg ${plano.status === 'Ativo' ? 'border-green-vale' : 'border-midnight-blue'} border-2
-                transparent
-              `}>
-                <div className='w-full flex flex-row justify-center items-center mb-2'>
-                  <h3 className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} text-lg font-bold`}>{plano.plano}</h3>
-                </div>
-                <div className="space-y-2">
-
-                  <div className="grid grid-cols-[100px_1fr] items-center">
-                    <span className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} italic text-base lg:text-lg`}>Nome:</span>
-                    <span className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} italic text-base lg:text-lg`}>{plano.nome}</span>
-                  </div>
-                  
-                  <div className="grid grid-cols-[100px_1fr] items-center">
-                    <span className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} italic text-base lg:text-lg`}>Contrato:</span>
-                    <span className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} italic font-bold text-base lg:text-lg`}>{plano.contrato}</span>
-                  </div>
-
-                  <div className="grid grid-cols-[100px_1fr] items-center">
-                    <span className={`${plano.status === 'Ativo' ? 'text-green-vale' : 'text-midnight-blue'} italic text-base lg:text-lg`}>Status:</span>
-                    <span className={`${plano.status === 'Ativo' ? "text-green-vale" : "text-red-800"} italic text-base lg:text-lg font-bold`}>{plano.status}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Seção de Cartões */}
-              <div className="space-y-4 w-full">
-                <div className="flex justify-center">
-                  <button
-                    onClick={() => toggleAccordion(plano.contrato)}
-                    className={`w-full ${plano.status === "Ativo" ? 'bg-green-vale' : 'bg-gray-400'} text-white rounded-xl py-2 px-4 font-semibold text-sm lg:text-base relative`}
-                  >
-                    Visualizar carteirinhas
-                    {openAccordions[plano.contrato] ? 
-                      <ChevronUp className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} /> : 
-                      <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} />
-                    }
-                  </button>
+            <div key={plano.contrato} className="w-full sm:w-5/7 lg:w-2/5">
+              {/* Card Principal */}
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                {/* Cabeçalho com nome do plano */}
+                <div className={`${plano.status === 'Ativo' ? 'bg-green-vale' : 'bg-midnight-blue'} p-4`}>
+                  <h3 className="text-white text-xl font-bold text-center">
+                    {plano.plano}
+                  </h3>
                 </div>
 
-                {(openAccordions[plano.contrato] && plano.status === "Ativo") && (
-                  <div className="space-y-3">
-                    {/* Cartão Titular */}
-                    <div className={`${openAccordions[`${plano.contrato}-titular`] ? "bg-gray-200" : "transparent" }  rounded-xl p-3`}>
-                      <button 
-                        onClick={() => toggleAccordion(`${plano.contrato}-titular`)}
-                        className="w-full bg-green-900 text-white rounded-xl py-2 px-4 font-semibold text-sm lg:text-base relative"
-                      >
-                        Carteirinha titular
-                        {openAccordions[`${plano.contrato}-titular`] ? 
-                          <ChevronUp className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} /> : 
-                          <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} />
-                        }
-                      </button>
+                {/* Conteúdo do card */}
+                <div className="p-6">
+                  <div className="space-y-4">
+                    {/* Grid para informações */}
+                    <div className="grid grid-cols-[120px_1fr] gap-y-4 border-b border-gray-200 pb-4">
+                      <span className="text-gray-600 font-semibold">Titular:</span>
+                      <span className="text-gray-800">{plano.nome}</span>
                       
-                      {openAccordions[`${plano.contrato}-titular`] && (
-                        <div className="mt-3 rounded-lg">
-                          <button 
-                            onClick={() => {
-                              setSelectedPerson({ 
-                                type: 'titular', 
-                                data: plano 
-                              });
-                              setIsModalOpen(true);
-                            }}
-                            className="w-full cursor-pointer flex items-center px-3 sm:px-4 py-2.5 sm:py-3 bg-midnight-blue hover:bg-blue-900 active:bg-blue-800 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-                          >
-                            <div className="flex items-center justify-between w-full">
-                              <div className="flex items-center gap-2 flex-1">
-                                <span className="text-white text-sm sm:text-base font-medium">
-                                  {plano.nome}
-                                </span>
-                              </div>
-                              <div className="flex items-center text-white text-xs sm:text-sm ml-2">
-                                <span className="hidden sm:inline mr-2">Ver carteirinha</span>
-                                <ChevronRight size={16} className="text-gray-300" />
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-                      )}
+                      <span className="text-gray-600 font-semibold">Contrato:</span>
+                      <span className="text-gray-800 font-bold">{plano.contrato}</span>
+                      
+                      <span className="text-gray-600 font-semibold">Status:</span>
+                      <span className={`${plano.status === "Ativo" ? "text-green-vale" : "text-red-800"} font-bold`}>
+                        {plano.status}
+                      </span>
                     </div>
 
-                    {/* Cartão Dependentes */}
-                    <div className={`${openAccordions[`${plano.contrato}-dependentes`] ? "bg-gray-200" : "transparent" }  rounded-xl p-3`}>
-                      <button 
-                        onClick={() => toggleAccordion(`${plano.contrato}-dependentes`)}
-                        className="w-full bg-green-900 text-white rounded-xl py-2 px-4 font-semibold text-sm lg:text-base relative"
+                    {/* Seção de Cartões */}
+                    <div className="mt-6">
+                      {/* Botão Principal */}
+                      <button
+                        onClick={() => toggleAccordion(plano.contrato)}
+                        className={`w-full ${plano.status === "Ativo" ? 'bg-green-vale hover:bg-green-700' : 'bg-gray-400'} 
+                          text-white ${openAccordions[plano.contrato] ? 'rounded-t-xl' : 'rounded-xl'} py-3 px-4 font-semibold transition-colors relative flex items-center justify-center`}
                       >
-                        Carteirinhas dependentes
-                        {openAccordions[`${plano.contrato}-dependentes`] ? 
-                          <ChevronUp className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} /> : 
-                          <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2" size={20} />
-                        }
+                        <span>Visualizar carteirinhas</span>
+                        <div className="absolute right-4">
+                          {openAccordions[plano.contrato] ? 
+                            <ChevronUp size={20} /> : 
+                            <ChevronDown size={20} />
+                          }
+                        </div>
                       </button>
-                      
-                      {openAccordions[`${plano.contrato}-dependentes`] && (
-                        <div className="mt-3 space-y-2">
-                          {beneficiarios[`${plano.contrato}-${plano.filial}`]?.map((beneficiario) => (
+
+                      {/* Container dos Accordions */}
+                      {(openAccordions[plano.contrato] && plano.status === "Ativo") && (
+                        <div className="bg-gray-50 rounded-b-xl border border-t-0 border-gray-200">
+                          {/* Accordion Titular */}
+                          <div className="p-3">
                             <button 
-                              key={beneficiario.Nome}
-                              onClick={() => {
-                                setSelectedPerson({
-                                  type: 'dependente',
-                                  data: beneficiario
-                                });
-                                setIsModalOpen(true);
-                              }}
-                              className="w-full cursor-pointer flex items-center px-3 sm:px-4 py-2.5 sm:py-3 bg-midnight-blue hover:bg-blue-900 active:bg-blue-800 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                              onClick={() => toggleAccordion(`${plano.contrato}-titular`)}
+                              className="w-full bg-green-800 hover:bg-green-900 text-white rounded-lg py-2.5 px-4 
+                                font-semibold transition-colors relative flex items-center justify-between"
                             >
-                              <div className="flex items-center justify-between w-full">
-                                <div className="flex items-center gap-2 flex-1">
-                                  <span className="text-white text-sm sm:text-base font-medium">
-                                    {beneficiario.Nome}
-                                  </span>
-                                </div>
-                                <div className="flex items-center text-white text-xs sm:text-sm ml-2">
-                                  <span className="hidden sm:inline mr-2">Ver carteirinha</span>
-                                  <ChevronRight size={16} className="text-gray-300" />
-                                </div>
-                              </div>
+                              <span>Carteirinha titular</span>
+                              {openAccordions[`${plano.contrato}-titular`] ? 
+                                <ChevronUp size={20} /> : 
+                                <ChevronDown size={20} />
+                              }
                             </button>
-                          ))}
+                            
+                            {openAccordions[`${plano.contrato}-titular`] && (
+                              <div className="mt-2">
+                                <button 
+                                  onClick={() => {
+                                    setSelectedPerson({ type: 'titular', data: plano });
+                                    setIsModalOpen(true);
+                                  }}
+                                  className="w-full flex items-center px-4 py-2.5 bg-midnight-blue hover:bg-blue-900 
+                                    rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+                                >
+                                  <div className="flex items-center justify-between w-full">
+                                    <span className="text-white font-medium">{plano.nome}</span>
+                                    <div className="flex items-center text-white">
+                                      <span className="hidden sm:inline mr-2">Ver carteirinha</span>
+                                      <ChevronRight size={16} className="text-gray-300" />
+                                    </div>
+                                  </div>
+                                </button>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Accordion Dependentes */}
+                          <div className="p-3 border-t border-gray-200">
+                            <button 
+                              onClick={() => toggleAccordion(`${plano.contrato}-dependentes`)}
+                              className="w-full bg-green-800 hover:bg-green-900 text-white rounded-lg py-2.5 px-4 
+                                font-semibold transition-colors relative flex items-center justify-between"
+                            >
+                              <span>Carteirinhas dependentes</span>
+                              {openAccordions[`${plano.contrato}-dependentes`] ? 
+                                <ChevronUp size={20} /> : 
+                                <ChevronDown size={20} />
+                              }
+                            </button>
+                            
+                            {openAccordions[`${plano.contrato}-dependentes`] && (
+                              <div className="mt-2 space-y-2">
+                                {beneficiarios[`${plano.contrato}-${plano.filial}`]?.map((beneficiario) => (
+                                  <button 
+                                    key={beneficiario.Nome}
+                                    onClick={() => {
+                                      setSelectedPerson({ type: 'dependente', data: beneficiario });
+                                      setIsModalOpen(true);
+                                    }}
+                                    className="w-full flex items-center px-4 py-2.5 bg-midnight-blue hover:bg-blue-900 
+                                      rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+                                  >
+                                    <div className="flex items-center justify-between w-full">
+                                      <span className="text-white font-medium">{beneficiario.Nome}</span>
+                                      <div className="flex items-center text-white">
+                                        <span className="hidden sm:inline mr-2">Ver carteirinha</span>
+                                        <ChevronRight size={16} className="text-gray-300" />
+                                      </div>
+                                    </div>
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Mensagem para planos inativos */}
+                      {openAccordions[plano.contrato] && plano.status !== "Ativo" && (
+                        <div className="bg-gray-50 rounded-b-xl border border-t-0 border-gray-200 p-6">
+                          <p className="text-gray-800 text-center leading-relaxed mb-4">
+                            Para utilização dos serviços é necessário contato com
+                            área financeira para regularização de planos,
+                            favor entrar em contato através do tel. (62) 4006-0033 
+                            ou clique no botão abaixo.
+                          </p>
+                          <div className="flex justify-center">
+                            <a 
+                              className="flex items-center justify-center gap-2 bg-green-vale hover:bg-green-700 
+                                text-white rounded-xl py-3 px-6 transition-colors" 
+                              href="https://api.whatsapp.com/send?phone=556240060041" 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Atendimento Financeiro
+                              <WhatsappIcon/>
+                            </a>
+                          </div>
                         </div>
                       )}
                     </div>
                   </div>
-                )}
-
-                {openAccordions[plano.contrato] && plano.status !== "Ativo" && (
-                  <div className="bg-gray-200 rounded-xl p-3">
-                    <p className="text-gray-800 sm:text-base md:text-lg text-center">
-                      Para ultilização dos serviços
-                      é necessário contato com
-                      área financeira para
-                      regularização de planos,
-                      favor entrar em contato
-                      através do 
-
-                      tel. (62) 4006-0033 ou
-                      clique no botão abaixo.
-                    </p>
-                    <div className='flex w-full items-center justify-center mt-3'>
-                      <a 
-                        className='flex flex-row items-center justify-center gap-2 bg-green-vale w-4/5 text-black rounded-xl text-white p-1 cursor-pointer hover:bg-green-500' 
-                        href="https://api.whatsapp.com/send?phone=556240060041" 
-                        target='_blank'
-                        rel="noopener noreferrer"
-                      >
-                        Atendimento Financeiro
-                        <WhatsappIcon/>
-                      </a>
-                    </div>
-                  </div>
-                )}
+                </div>
               </div>
             </div>
           ))}
