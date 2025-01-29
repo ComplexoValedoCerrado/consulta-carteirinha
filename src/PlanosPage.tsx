@@ -66,7 +66,7 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
         </h2>
       </div>
 
-      <div className="w-full max-w-7xl mx-auto px-4">
+      <div className="w-full max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-6 lg:gap-16">
           {planos.map((plano) => (
             <div key={plano.contrato} className="w-full sm:w-5/7 lg:w-2/5">
@@ -83,7 +83,7 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                 <div className="p-6">
                   <div className="space-y-4">
                     {/* Grid para informações */}
-                    <div className="grid grid-cols-[120px_1fr] gap-y-4 border-b border-gray-200 pb-4">
+                    <div className="grid grid-cols-[80px_1fr] gap-y-4 border-b border-gray-200 pb-4">
                       <span className="text-gray-600 font-semibold">Titular:</span>
                       <span className="text-gray-800">{plano.nome}</span>
                       
