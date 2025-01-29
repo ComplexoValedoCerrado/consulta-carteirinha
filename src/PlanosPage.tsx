@@ -80,10 +80,10 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                 </div>
 
                 {/* Conteúdo do card */}
-                <div className="p-6">
+                <div className="">
                   <div className="space-y-4">
                     {/* Grid para informações */}
-                    <div className="grid grid-cols-[80px_1fr] gap-y-4 border-b border-gray-200 pb-4">
+                    <div className="grid grid-cols-[80px_1fr] gap-y-4 pb-1 pt-6 pl-6 pr-6">
                       <span className="text-gray-600 font-semibold">Titular:</span>
                       <span className="text-gray-800">{plano.nome}</span>
                       
@@ -97,7 +97,7 @@ function PlanosPage({ planos, beneficiarios, setPlanos, setBeneficiarios }: Plan
                     </div>
 
                     {/* Seção de Cartões */}
-                    <div className="mt-6">
+                    <div className="p-2 pb-4">
                       {/* Botão Principal */}
                       <button
                         onClick={() => toggleAccordion(plano.contrato)}
