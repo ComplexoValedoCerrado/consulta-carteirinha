@@ -3,17 +3,14 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-50%)); /* Mantemos -50% pois temos a duplicação */
+      transform: translateX(calc(-50%));
     }
   }
   
   .animate-scroll {
-    animation: scroll 60s linear infinite; /* Aumentei o tempo para dar tempo de ver todas */
+    animation: scroll 60s linear infinite;
     display: flex;
     gap: 2rem;
-    width: max-content; /* Mudei de fit-content para max-content */
+    width: max-content; 
   }
   
-  .animate-scroll:hover {
-    animation-play-state: paused;
-  }

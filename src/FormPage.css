@@ -1,0 +1,17 @@
+@media (max-height: 600px) and (orientation: portrait) {
+    .text-responsive {
+      font-size: 1.5rem !important;
+    }
+    
+    .woman-image {
+      max-height: 60vh !important;
+    }
+    
+    .text-sm-md {
+      font-size: 0.875rem !important;
+    }
+  }
+  
+  img {
+    will-change: transform;
+  }

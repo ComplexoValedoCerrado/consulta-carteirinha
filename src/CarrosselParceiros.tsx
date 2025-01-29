@@ -182,7 +182,7 @@ const CarrosselParceiros = () => {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="h-30 w-auto object-contain"
+                className="h-25 w-auto "
                 loading="eager"
               />
             </div>
