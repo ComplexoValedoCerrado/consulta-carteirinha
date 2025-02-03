@@ -2,7 +2,6 @@ services:
   app:
     build: .
     container_name: "carteirinhas-app"
-    command: npm run dev
     working_dir: /app
     env_file:
       - .env
@@ -10,3 +9,4 @@ services:
       - "5173:5173"
     volumes:
       - .:/app
+      - /app/node_modules
